@@ -384,7 +384,7 @@ export default function Staking() {
                 cursor='pointer' w='100px' minW='100px' border='solid 1px rgb(240,240,240)' 
                 // bg={bool ? backgroundSelected : 'none' }
                  h='115px' p='5px 10px' style={{ borderRadius: '7px'}} justify='start' align='left' spacing='5px'>
-                <Image style={{ borderRadius: '7px'}} w='100%' src={`https://joepegs.mypinata.cloud/ipfs/Qmf66mXDewwSKsFuysXUXQsjPzSdpUfcKodWLx9VWrXNV3/${nfts[index]}.png`} alt='id-pic' loading='lazy' />
+                <Image style={{ borderRadius: '7px'}} src={`https://joepegs.mypinata.cloud/ipfs/Qmf66mXDewwSKsFuysXUXQsjPzSdpUfcKodWLx9VWrXNV3/${nfts[index]}.png`} alt='id-pic' loading='lazy' />
                 <Text fontWeight={'bold'} >#{nfts[index]}</Text>
               </Stack>
             )}
@@ -435,7 +435,7 @@ export default function Staking() {
                     cursor='pointer' w='100px' minW='100px' border='solid 1px rgb(240,240,240)' 
                             // bg={bool ? backgroundSelected : 'none' }
                              h='115px'  p='5px 10px' style={{ borderRadius: '7px'}} justify='start' align='left' spacing='5px'>
-                      <Image style={{ borderRadius: '7px'}} w='80px' src={`https://joepegs.mypinata.cloud/ipfs/Qmf66mXDewwSKsFuysXUXQsjPzSdpUfcKodWLx9VWrXNV3/${peaceful[index]}.png`} alt='id-pic' loading='lazy' />
+                      <Image style={{ borderRadius: '7px'}} width={80} src={`https://joepegs.mypinata.cloud/ipfs/Qmf66mXDewwSKsFuysXUXQsjPzSdpUfcKodWLx9VWrXNV3/${peaceful[index]}.png`} alt='id-pic' loading='lazy' />
                       <Text fontWeight={'bold'} >#{peaceful[index]}</Text>
                     </Stack>
                   )}
@@ -485,7 +485,7 @@ export default function Staking() {
                        cursor='pointer' w='100px' minW='100px' border='solid 1px rgb(240,240,240)' 
                           // bg={bool ? backgroundSelected : 'none' }
                            h='115px' p='5px 10px' style={{ borderRadius: '7px'}} justify='start' align='left' spacing='5px'>
-                      <Image style={{ borderRadius: '7px'}} w='80px' src={`https://joepegs.mypinata.cloud/ipfs/Qmf66mXDewwSKsFuysXUXQsjPzSdpUfcKodWLx9VWrXNV3/${hungry[index]}.png`} alt='id-pic' loading='lazy' />
+                      <Image style={{ borderRadius: '7px'}} width={80} src={`https://joepegs.mypinata.cloud/ipfs/Qmf66mXDewwSKsFuysXUXQsjPzSdpUfcKodWLx9VWrXNV3/${hungry[index]}.png`} alt='id-pic' loading='lazy' />
                       <Text fontWeight={'bold'} >#{hungry[index]}</Text>
                     </Stack>
                   )}
@@ -535,7 +535,7 @@ export default function Staking() {
                      cursor='pointer' w='100px' minW='100px' border='solid 1px rgb(240,240,240)' 
                           // bg={bool ? backgroundSelected : 'none' }
                            maxH='115px' h='115px' p='5px 10px' style={{ borderRadius: '7px'}} justify='start' align='left' spacing='5px'>
-                      <Image style={{ borderRadius: '7px'}} w='80px' src={`https://joepegs.mypinata.cloud/ipfs/Qmf66mXDewwSKsFuysXUXQsjPzSdpUfcKodWLx9VWrXNV3/${frenzy[index]}.png`} alt='id-pic' loading='lazy' />
+                      <Image style={{ borderRadius: '7px'}} width={80} src={`https://joepegs.mypinata.cloud/ipfs/Qmf66mXDewwSKsFuysXUXQsjPzSdpUfcKodWLx9VWrXNV3/${frenzy[index]}.png`} alt='id-pic' loading='lazy' />
                       <Text fontWeight={'bold'} >#{frenzy[index]}</Text>
                     </Stack>
                   )}
@@ -610,7 +610,7 @@ export default function Staking() {
                  cursor='pointer' w='100px' minW='100px' border='solid 1px rgb(240,240,240)' 
                         // bg={bool ? backgroundSelected : 'none' }
                          h='115px' p='5px 10px' style={{ borderRadius: '7px'}} justify='start' align='left' spacing='5px'>
-                  <Image style={{ borderRadius: '7px'}} w='80px' src={`https://joepegs.mypinata.cloud/ipfs/Qmf66mXDewwSKsFuysXUXQsjPzSdpUfcKodWLx9VWrXNV3/${peaceful[index]}.png`} alt='id-pic' loading='lazy' />
+                  <Image style={{ borderRadius: '7px'}} width={80} src={`https://joepegs.mypinata.cloud/ipfs/Qmf66mXDewwSKsFuysXUXQsjPzSdpUfcKodWLx9VWrXNV3/${peaceful[index]}.png`} alt='id-pic' loading='lazy' />
                   <Text fontWeight={'bold'} >#{peaceful[index]}</Text>
                 </Stack>
               )}
@@ -657,7 +657,7 @@ export default function Staking() {
                  cursor='pointer' w='100px' minW='100px' border='solid 1px rgb(240,240,240)' 
                         // bg={bool ? backgroundSelected : 'none' }
                          h='115px' p='5px 10px' style={{ borderRadius: '7px'}} justify='start' align='left' spacing='5px'>
-                  <Image style={{ borderRadius: '7px'}} w='80px' src={`https://joepegs.mypinata.cloud/ipfs/Qmf66mXDewwSKsFuysXUXQsjPzSdpUfcKodWLx9VWrXNV3/${hungry[index]}.png`} alt='id-pic' loading='lazy' />
+                  <Image style={{ borderRadius: '7px'}} width={80} src={`https://joepegs.mypinata.cloud/ipfs/Qmf66mXDewwSKsFuysXUXQsjPzSdpUfcKodWLx9VWrXNV3/${hungry[index]}.png`} alt='id-pic' loading='lazy' />
                   <Text fontWeight={'bold'} >#{hungry[index]}</Text>
                 </Stack>
               )}
@@ -702,7 +702,7 @@ export default function Staking() {
                  cursor='pointer' w='100px' minW='100px' border='solid 1px rgb(240,240,240)' 
                         // bg={bool ? backgroundSelected : 'none' }
                          h='115px' p='5px 10px' style={{ borderRadius: '7px'}} justify='start' align='left' spacing='5px'>
-                  <Image style={{ borderRadius: '7px'}} w='80px' src={`https://joepegs.mypinata.cloud/ipfs/Qmf66mXDewwSKsFuysXUXQsjPzSdpUfcKodWLx9VWrXNV3/${frenzy[index]}.png`} alt='id-pic' loading='lazy' />
+                  <Image style={{ borderRadius: '7px'}} width={80} src={`https://joepegs.mypinata.cloud/ipfs/Qmf66mXDewwSKsFuysXUXQsjPzSdpUfcKodWLx9VWrXNV3/${frenzy[index]}.png`} alt='id-pic' loading='lazy' />
                   <Text fontWeight={'bold'} >#{frenzy[index]}</Text>
                 </Stack>
               )}
