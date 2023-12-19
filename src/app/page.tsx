@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <>
       <MaxWidthSection>
-        <Stack m={4} minH='400px' justify='space-between' direction={{xsm:'column', sm: 'column',md: 'row-reverse', lg:'row-reverse', xl: 'row-reverse'}} p={4}>
+        <Stack m={4} minH='400px' justify='space-between' direction={{base:'column-reverse', sm: 'column-reverse', md: 'row'}} p={4}>
             <VStack flex={1} gap='1.5rem' justify='center' align='start'>
                 <Heading as='h1' size='3xl' >
                     Lazy Bear River
@@ -108,20 +108,10 @@ export default function Home() {
                     In a changing ecosystem, how will you play?
                 </Text>
             </VStack>
-            <Grid m='1rem 0' templateColumns="1fr 1fr 1fr 1fr" gap='1rem'>
-                <Stack p={4} align='center' justify='start'>
+            <Flex flexWrap="wrap" m='1rem 0' gap='1rem'>
+                <Stack flex={1} p={2} align='center' justify='start'>
                     {/* <Icon  /> */}
-                    <Image src={stakingMethods} alt='grid-pic' />
-                    <Heading as="h3" size="lg">
-                        Staking
-                    </Heading>
-                    <Text  textAlign="center" color='text' size='sm'>
-                        Choose your own strategy on your quest for $FISH
-                    </Text>
-                </Stack>
-                <Stack p={4} align='center' justify='start'>
-                    {/* <Icon  /> */}
-                    <Image src={collect} alt='grid-pic' />
+                    <Image style={{ objectFit: 'contain' }} width={200} src={collect} alt='grid-pic' />
                     <Heading as="h3" size="lg">
                         Collection
                     </Heading>
@@ -129,9 +119,19 @@ export default function Home() {
                         Collectible bears with over 69 unique attributes
                     </Text>
                 </Stack>
-                <Stack p={4} align="center" justify='start'>
+                <Stack flex={1} p={2} align='center' justify='start'>
                     {/* <Icon  /> */}
-                    <Image src={exponential} alt='grid-pic' />
+                    <Image style={{ objectFit: 'contain' }} width={200} src={stakingMethods} alt='grid-pic' />
+                    <Heading as="h3" size="lg">
+                        Staking
+                    </Heading>
+                    <Text  textAlign="center" color='text' size='sm'>
+                        Choose your own strategy on your quest for $FISH
+                    </Text>
+                </Stack>
+                <Stack flex={1} p={2} align="center" justify='start'>
+                    {/* <Icon  /> */}
+                    <Image style={{ objectFit: 'contain' }} width={200} src={exponential} alt='grid-pic' />
                     <Heading as="h3" size="lg">
                         Supply
                     </Heading>
@@ -139,9 +139,9 @@ export default function Home() {
                         $FISH supply that simulates natural population growth
                     </Text>
                 </Stack>
-                <Stack p={4} align="center" justify='start'>
+                <Stack flex={1} p={2} align="center" justify='start'>
                     {/* <Icon  /> */}
-                    <Image src={allThree} alt='grid-pic' />
+                    <Image style={{ objectFit: 'contain' }} width={200} src={allThree} alt='grid-pic' />
                     <Heading textAlign="center" as="h3" size="lg">
                         Game Theory
                     </Heading>
@@ -149,7 +149,7 @@ export default function Home() {
                         Compete or work together to survive on The River
                     </Text>
                 </Stack>
-            </Grid>
+            </Flex>
         </Stack>
       </MaxWidthSection>
       <MaxWidthSection bg="bg">
@@ -161,10 +161,8 @@ export default function Home() {
                 Over 200,000 unique bear options
             </Text>
             <Divider w='300px' />
-            <Stack direction={{xsm: 'column', sm:'column', md:'row', lg: 'row'}} align='start' gap='2rem' w='100%' p={4}>
-                <Box w='100%'>
-                    <Image style={{ margin: 'auto', maxWidth: '400px' }} width={400} src={selectBear} alt='bear-customization' />
-                </Box>
+            <Stack direction={{base: 'column', sm:'column', md:'row', lg: 'row'}} align={{ base: 'center', md: 'start' }} gap='2rem' w='100%' p={4}>
+                <Image style={{ objectFit: 'cover' }} width={400} src={selectBear} alt='bear-customization' />
                 <Box w='100%'>
                     <Accordion allowToggle>
                         <AccordionItem>
@@ -334,7 +332,7 @@ export default function Home() {
                 <Text color='text' >16,000 / 20,000 Bears</Text>
             </HStack>
             <Divider w='300px' />
-            <Grid alignContent='space-around' w='100%' templateColumns={{xsm: '1fr', md: '1fr 1fr', lg: '1fr 1fr', xl: '1fr 1fr'}}>
+            <Grid alignContent='space-around' w='100%' templateColumns={{base: '1fr', md: '1fr 1fr', lg: '1fr 1fr', xl: '1fr 1fr'}}>
                 <Stack  p={4} align='center' justify='start'>
                     <Heading>
                         Win

@@ -8,6 +8,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --w3m-border-radius-master: 1px !important;
+  --wui-color-accent-100: #3182CE !important;
   --background-end-rgb: 255, 255, 255;
 
   --primary-glow: conic-gradient(

@@ -5,6 +5,7 @@ import { Providers } from './providers';
 import { Rubik } from 'next/font/google'
 import Navbar from '@/components/Navbar';
 import Web3ModalProvider from "../context/Web3Modal";
+import StoreProvider from './StoreProvider';
 
 const rubik = Rubik({
   subsets: ['latin'],
@@ -27,12 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={fonts.rubik.variable}>
       <body>
-        <Providers>
-          <Web3ModalProvider>
-            <Navbar />
-            {children}
-          </Web3ModalProvider>
-        </Providers>
+        <StoreProvider>
+          <Providers>
+            <Web3ModalProvider>
+              <Navbar />
+              {children}
+            </Web3ModalProvider>
+          </Providers>
+        </StoreProvider>
         </body>
     </html>
   )

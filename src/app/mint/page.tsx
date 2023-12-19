@@ -52,7 +52,7 @@ export default function Minter() {
             1 AVAX per Lazy Bear
           </Text>
         </Stack>
-        <Stack p={4} direction={{xsm: 'column-reverse', sm: 'column-reverse',md: 'row'}} justify='space-around' gap='2rem'>
+        <Stack p={4} direction={{ base : 'column-reverse', md: 'row'}} justify='space-around' gap='2rem'>
           <Stack minW='300px' p={4} border='solid 1px rgb(240,240,240)' borderRadius='lg' >
             <Stack mb='2rem' gap='0.5rem'>
               <Stack justify='start' align='center' spacing={0}>
