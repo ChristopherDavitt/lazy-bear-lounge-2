@@ -1,6 +1,8 @@
 import { ethers } from 'ethers';
 import { stakingABI, nftABI } from './abis';
-import {staking, nft} from './contracts';
+
+const staking = process.env.NEXT_PUBLIC_STAKING_ADDRESS!!;
+const nft = process.env.NEXT_PUBLIC_ERC_721_ADDRESS!!;
 // get unstaked IDs, = walletOfOwner
 
 export const getNFTData = async (address:any) => {

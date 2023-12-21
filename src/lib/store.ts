@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
+
 const defaultState = {
   nfts: [],
   peacefulStaked: [],
@@ -19,7 +20,11 @@ const defaultState = {
   lastEpochTime: 0,
   nftPaused: true,
   stakingPaused: true,
-  address: '0x0000000000000000000000000000000000000000'
+  account: {
+    address: undefined,
+    connected: false,
+    chainId: undefined,
+  },
 };
 const reducer = (state = defaultState, action: any) => {
   switch (action.type) {
@@ -61,8 +66,8 @@ const reducer = (state = defaultState, action: any) => {
           return {...state, nftPaused: action.payload}
       case "CONNECT_WALLET":
           return {...state, connected: true};
-      case "UPDATE_ADDRESS":
-          return {...state, address: action.payload};
+      case "UPDATE_ACCOUNT":
+          return {...state, account: action.payload};
       case "DISCONNECT_WALLET":
           return defaultState;
       case "LOADING":

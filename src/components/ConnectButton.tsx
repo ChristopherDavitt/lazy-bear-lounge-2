@@ -10,5 +10,5 @@ export default function ConnectButton() {
     setThemeMode(colorMode.colorMode);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [colorMode.colorMode])
-  return <w3m-button />
+  return <w3m-button balance="hide" />
 }

@@ -1,6 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Providers } from './providers';
+import { ThemeProvider } from './providers';
 // app/fonts.ts
 import { Rubik } from 'next/font/google'
 import Navbar from '@/components/Navbar';
@@ -29,12 +29,12 @@ export default function RootLayout({
     <html lang="en" className={fonts.rubik.variable}>
       <body>
         <StoreProvider>
-          <Providers>
+          <ThemeProvider>
             <Web3ModalProvider>
               <Navbar />
               {children}
             </Web3ModalProvider>
-          </Providers>
+          </ThemeProvider>
         </StoreProvider>
         </body>
     </html>

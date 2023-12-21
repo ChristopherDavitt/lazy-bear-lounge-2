@@ -1,6 +1,8 @@
 "use client"
 
-import { createWeb3Modal, defaultConfig } from '@web3modal/ethers5/react'
+import { useAppDispatch } from '@/lib/hooks';
+import { createWeb3Modal, defaultConfig, useWeb3ModalAccount } from '@web3modal/ethers5/react'
+import React from 'react';
 
 // 1. Get projectId
 const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID!!
@@ -39,5 +41,15 @@ createWeb3Modal({
 })
 
 export default function Web3ModalProvider({ children }: { children: React.ReactNode }) {
+  const dispatch = useAppDispatch();
+  const account = useWeb3ModalAccount();
+
+  // Dispatch action when account changes
+  React.useEffect(() => {
+      if (account) {
+          dispatch({type: 'UPDATE_ACCOUNT', payload: account});
+      }
+  }, [account, dispatch]);
+  
   return children;
 }

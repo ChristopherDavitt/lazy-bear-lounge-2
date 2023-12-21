@@ -1,13 +1,13 @@
 "use client"
 
 import { FaDiscord, FaTwitter, FaGithub } from 'react-icons/fa'
-import { Stack, Box, Grid,
-        Text, Heading, VStack, 
+import { Stack, Box,
+        Text, Heading, VStack,
         HStack, Button, Divider, 
         Flex,
         Accordion, AccordionItem,
         AccordionButton, AccordionPanel,
-        AccordionIcon
+        AccordionIcon,
         } from '@chakra-ui/react';
 
 import hero from '../../public/43.png';
@@ -21,6 +21,7 @@ import loss from '../../public/Losst.png';
 import Link from 'next/link';
 import Image from 'next/image';
 import MaxWidthSection from '@/components/MaxWidthSection';
+import logo from '../../public/DiscordIcon.png'
 
 export default function Home() {
 
@@ -97,7 +98,7 @@ export default function Home() {
             </Stack>
         </Stack>
       </MaxWidthSection>
-      <MaxWidthSection>
+      <MaxWidthSection bg="bg">
         <Stack m='2rem 0' p={6}  align='center' justify='center' gap='2rem'>
             <VStack>
                 <Heading as='h2' size='2xl'>
@@ -152,7 +153,7 @@ export default function Home() {
             </Flex>
         </Stack>
       </MaxWidthSection>
-      <MaxWidthSection bg="bg">
+      <MaxWidthSection>
         <Stack m='2rem 0' p={6} w='100%' align='center' justify='center' >
             <Heading as="h2" size="2xl">
                 Bears
@@ -177,7 +178,7 @@ export default function Home() {
                                 
                             </AccordionButton>
                             <AccordionPanel pb={4}>
-                                <Flex  w='100%' justify='space-between'>
+                                <Flex w='100%' justify='space-between'>
                                     <Text fontWeight={'medium'}>Attribute</Text> 
                                     <Text fontWeight={'medium'}>Chance (%)</Text>
                                 </Flex>
@@ -318,66 +319,78 @@ export default function Home() {
             </Stack>
         </Stack>
       </MaxWidthSection>
-      <MaxWidthSection>
-
-        <Stack m='2rem 0' p={6} align='center' justify='center'>
-            <Text fontWeight='bold' color='text'>
-                1 $FISH = 1 $FISH
-            </Text>
-            <Text fontWeight='bold' color='text'>
-                Bear Cost | 100 $FISH
-            </Text>
-            <HStack gap='1rem'>
-                <Heading>Game</Heading>
-                <Text color='text' >16,000 / 20,000 Bears</Text>
-            </HStack>
+      <MaxWidthSection bg="bg">
+        <Stack m='2rem 0' p={6} align='center' justify="center">
+            <Heading size="2xl">Game</Heading>
+            <Text color="text">The fate of the bears depends on you.</Text>
             <Divider w='300px' />
-            <Grid alignContent='space-around' w='100%' templateColumns={{base: '1fr', md: '1fr 1fr', lg: '1fr 1fr', xl: '1fr 1fr'}}>
-                <Stack  p={4} align='center' justify='start'>
-                    <Heading>
-                        Win
-                    </Heading>
-                    <Text color='text' >Survive 69 Epochs</Text>
-                    <Divider w='300px' />
-                    <Image width={300} src={win} alt='grid-pic' />
-                    <Divider w='300px' />
-                    <Text color='text'  align='center' size='sm'>
-                        Dont Deplete the River for 69 Epochs
-                    </Text>
-                </Stack>
-                <Stack p={4} align='center' justify='start'>
-                    <Heading>
-                        Loss
-                    </Heading>
-                    <Text color='text' >Overfish The River</Text>
-                    <Divider w='300px' />
-                    <Image width={300} src={loss} alt='grid-pic' />
-                    <Divider w='300px' />
-                    <Text color='text'  align='center' size='sm'>
-                        River goes empty before 69 Epochs
-                    </Text>
-                </Stack>
-            </Grid>
+            <Flex my={8} gap="2rem" width="100%" justify="space-evenly" flexWrap="wrap" align="flex-start">
+              <Stack align="center" justify="center" flex={1} maxWidth={400} minHeight={350} minWidth={200}>
+            
+                <Image width={300} src={win} alt='bears win!' />
+                <Heading textAlign="center" size='lg'>Save the River</Heading>
+                <Text color='text'  align='center' size='sm'>
+                    Dont Deplete the River for 69 Epochs
+                </Text>
+                <Divider />
+                <code>5% $LAZY Reward to Holders</code>
+                <code>Bear Karma +1</code>
+                <code>Journey Continues...</code>
+              </Stack>
+              <Stack align="center" justify="center" flex={1} maxWidth={400} minHeight={350} minWidth={200}>
+                <Image width={300} src={loss} alt='bears lose...' />
+                <Heading textAlign="center" size='lg'>Overfish the River</Heading>
+                <Text color='text'  align='center' size='sm'>
+                    Deplete the River before Epoch 69
+                </Text>
+                <Divider />
+                <code>Burn 5% $LAZY</code>
+                <code>Bear Karma -1</code>
+                <code>Journey Continues...</code>
+              </Stack>
+            </Flex>
         </Stack>
-        <Stack p={6}>
-             <HStack w='100%' justify='center' gap='1rem' >
-                <Link 
-                  href='https://twitter.com/LazyBearRiver'
-                  >
-                  <Box size={'32px'} as={FaTwitter} />
-                </Link>
-                <Link 
-                  href='#'
-                  >
-                  <Box size={'32px'} as={FaDiscord} />
-                </Link>
-                <Link 
-                  href='https://lazybearriver.gitbook.io/docs/'
-                  >
-                  <Box size={'32px'} as={FaGithub} />
-                </Link>
-            </HStack>    
-        </Stack>  
+      </MaxWidthSection>
+      <Divider />
+      <MaxWidthSection>
+        <footer>
+          <Stack align="center" p={{ base: 8, md: 16 }}>
+            <Image width={160} src={logo} alt='logo' />
+            <HStack w='100%' justify='center' gap='1rem'>
+              <Link href="/mint">Home</Link>
+              <p>|</p>
+              <Link href="/mint">Mint</Link>
+              <p>|</p>
+              <Link href="/mint">Staking</Link>
+              <p>|</p>
+              <Link href="/mint">Docs</Link>
+            </HStack>
+            <HStack w='100%' justify='center' gap='1rem'>
+              <Link href="/mint">Bear NFT</Link>
+              <p>|</p>
+              <Link href="/mint">Staking</Link>
+              <p>|</p>
+              <Link href="/mint">$LAZY Address</Link>
+            </HStack>
+            <HStack w='100%' justify='center' gap='1rem' >
+              <Link 
+                href='https://twitter.com/LazyBearRiver'
+                >
+                <Box size={'32px'} as={FaTwitter} />
+              </Link>
+              <Link 
+                href='#'
+                >
+                <Box size={'32px'} as={FaDiscord} />
+              </Link>
+              <Link 
+                href='https://lazybearriver.gitbook.io/docs/'
+                >
+                <Box size={'32px'} as={FaGithub} />
+              </Link>
+            </HStack> 
+          </Stack>   
+        </footer>
       </MaxWidthSection>
     </>
   )

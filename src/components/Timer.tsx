@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import { Button, Stack, Text, useToast } from '@chakra-ui/react';
-
-import { staking } from '../helpers/contracts';
 import { stakingABI } from '../helpers/abis';
 import { useAppDispatch, useAppSelector } from '../lib/hooks';
 import { getEpoch, getTokenInfo } from '../helpers/getValues';
 
+const staking = process.env.NEXT_PUBLIC_STAKING_ADDRESS!!;
 
 export default function Timer(props: any) {
 
@@ -14,7 +13,7 @@ export default function Timer(props: any) {
 
     const connected = useAppSelector((state) => state.connected);
     const paused = useAppSelector((state) => state.stakingPaused);
-    const address = useAppSelector((state) => state.address);
+    const address = useAppSelector((state) => state.account.address);
 
     const timeToNextEpoch = 180;
     const toast = useToast();
