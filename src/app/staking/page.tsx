@@ -24,6 +24,7 @@ import hungryIcon from '../../../public/HungryIcon.png';
 import frenzyIcon from '../../../public/FrenzyIcon.png';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 import { useState } from 'react';
+import MaxWidthSection from '@/components/MaxWidthSection';
 
 export default function Staking() {
   const epoch = useAppSelector((state) => state.epochNum);
@@ -32,7 +33,7 @@ export default function Staking() {
   const balance = useAppSelector((state) => state.balance)
   const claimable = useAppSelector((state) => state.claimable);
   const riverSupply = useAppSelector((state) => state.river);
-  const connected = useAppSelector((state) => state.connected);
+  const connected = useAppSelector((state) => state.account.connected);
   const nfts = useAppSelector((state) => state.nfts);
   const approvedNFT = useAppSelector((state) => state.approvedNFT);
   const peaceful = useAppSelector((state) => state.peacefulStaked);
@@ -51,23 +52,11 @@ export default function Staking() {
   const [frenzyBool, setFrenzyBool] = useState<boolean[]>([]);
 
   return (
-    <Stack
-      overflowY='hidden'
-      align='center'
-      justify='center'
-      p={4}
-      gap='1rem'
-      minH={{md: '620px'}}
-      m='auto'
-      direction='column'
-      >
+    <MaxWidthSection>
       <Grid
-        w='calc(100vw - 40px)'
-        maxW='1200px'
-        templateColumns={{sm: '1fr 1fr', md: '1fr 1fr 1fr 1fr', lg:'1fr 1fr 1fr 1fr', xl: '1fr 1fr 1fr 1fr'}}
+        w='100%'
+        templateColumns={{base: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr 1fr'}}
         gap='1rem'
-        overflow='hidden'
-        pb='10px'
         >
         <VStack
           align='center'
@@ -77,7 +66,7 @@ export default function Staking() {
           borderRadius='lg'
           spacing={0}
           p='0.5rem'
-          bg={useColorModeValue('rgb(240,240,240)', 'blackAlpha.100')}
+          bg={'bg'}
           >
           <Heading 
             as='h3'
@@ -85,7 +74,7 @@ export default function Staking() {
             >
             Current Epoch
           </Heading>
-          <Skeleton h='20px' w='90%' fadeDuration={1} isLoaded={connected}
+          <Skeleton h='24px' w='100%' fadeDuration={1} isLoaded={connected}
           > 
             <Text
               fontSize='lg'
@@ -100,9 +89,9 @@ export default function Staking() {
             >
             Next Epoch
           </Heading>
-          <Skeleton h='30px' w='90%' fadeDuration={1} isLoaded={connected}
+          <Skeleton h='24px' w='100%' fadeDuration={1} isLoaded={connected}
           >
-              <Timer time={epochTime} />
+            <Timer time={epochTime} />
           </Skeleton>
         </VStack>
         <Stack 
@@ -113,15 +102,14 @@ export default function Staking() {
           borderRadius='lg'
           spacing={0}
           p='0.5rem'
-          bg={useColorModeValue('rgb(240,240,240)', 'blackAlpha.100')}
-          
+          bg={'bg'} 
           >
           <Heading
             as='h3'
             size='lg'>
             Balance
           </Heading>
-          <Skeleton h='20px' w='90%' fadeDuration={1} isLoaded={connected}
+          <Skeleton h='24px' width="100%" fadeDuration={1} isLoaded={connected}
           >
             <Text
               fontSize='lg'
@@ -136,7 +124,7 @@ export default function Staking() {
             >
             Claim Rewards
           </Heading>
-          <HStack align='center' justify='space-between'>
+          <HStack width="100%" align='end' justify='space-between'>
             <Skeleton h='24px' w='100%' fadeDuration={1} isLoaded={connected}
             >
               <Text 
@@ -159,6 +147,7 @@ export default function Staking() {
           </HStack>
         </Stack>
         <VStack
+          bg={'bg'}
           align='center'
           justify='space-around'
           w='100%'
@@ -167,8 +156,7 @@ export default function Staking() {
           borderRadius='lg'
           spacing={0}
           p='0.5rem'
-          bg={useColorModeValue('rgb(240,240,240)', 'blackAlpha.100')}
-          >
+        >
           <Heading 
             as='h3'
             size='lg'
@@ -176,9 +164,10 @@ export default function Staking() {
             River Supply
           </Heading>
           <Box
-            w='95%'
+            w="100%"
+            padding="2"
             h='25px'
-            style={{ borderRadius: '7px'}}
+            style={{ borderRadius: '7px' }}
             border='solid 1px rgb(60,60,60)'
             boxShadow='md'>
             <Stack  
@@ -197,11 +186,10 @@ export default function Staking() {
               </Text>
             </Stack>
           </Box>
-          <Text align='center' color={useColorModeValue('gray.700', 'gray.200')} fontSize='sm'>
+          <Text align='center' color="text" fontSize='sm'>
             The river supply increases by 2x every epoch. Carrying Capacity is 271828 Fish.
           </Text>
         </VStack>
-        
         <Stack 
           align='center'
           justify='space-around'
@@ -210,7 +198,7 @@ export default function Staking() {
           borderRadius='lg'
           spacing={0}
           p='0.5rem'
-          bg={useColorModeValue('rgb(240,240,240)', 'blackAlpha.100')}
+          bg="bg"
           >
           <Heading
             as='h3'
@@ -228,7 +216,7 @@ export default function Staking() {
                 fontSize='md'>
                 Peaceful
               </Text>
-              <Skeleton h='20px' w='100%' fadeDuration={1} isLoaded={connected}
+              <Skeleton h='24px' w='100%' fadeDuration={1} isLoaded={connected}
               >
                 <Text align='center'
                   fontWeight='medium'>
@@ -248,7 +236,7 @@ export default function Staking() {
                 fontSize='md'>
                 Hungry
               </Text>
-              <Skeleton h='20px' w='100%' fadeDuration={1} isLoaded={connected}
+              <Skeleton h='24px' w='100%' fadeDuration={1} isLoaded={connected}
               >
                 <Text align='center' fontWeight='medium'>
                   {hungryNum}
@@ -266,7 +254,7 @@ export default function Staking() {
               <Text fontSize='md'>
                 Frenzy
               </Text>
-              <Skeleton h='20px' w='100%' fadeDuration={1} isLoaded={connected}
+              <Skeleton h='24px' w='100%' fadeDuration={1} isLoaded={connected}
               >
                 <Text align='center'
                   fontWeight='medium'>
@@ -278,13 +266,12 @@ export default function Staking() {
         </Stack>
       </Grid>
       <Box
-        w='calc(100vw - 40px)'
-        maxW='1200px' 
         minH='730px'
+        mt="1rem"
         h={{base: '1057px', sm: '787px'}}
         borderRadius='lg'
         p='0.5rem 1rem'
-        bg={useColorModeValue('rgb(240,240,240)', 'blackAlpha.100')}
+        bg={'bg'}
         boxShadow={'md'}
         >
         <VStack 
@@ -375,7 +362,7 @@ export default function Staking() {
               }
             </Flex>
           </Flex>
-          <HStack p={2} spacing='10px' bg={useColorModeValue('white', 'gray.800')} style={{ borderRadius: '7px'}} boxShadow='md' w='100%' minH='140px' overflowX='auto' overflowY='hidden'>
+          <HStack p={2} spacing='10px' bg={'default'} style={{ borderRadius: '7px'}} boxShadow='md' w='100%' minH='140px' overflowX='auto' overflowY='hidden'>
             {/* Map through the list of unstaked NFTs */}
             {nftBool.map((bool:boolean, index:number) => 
               <Stack 
@@ -390,7 +377,7 @@ export default function Staking() {
             )}
           </HStack>
           <Hide below='sm'>
-            <HStack w='100%' justify='space-between' h={{sm: 'calc(100% - 250px)', md: 'calc(100% - 220px)'}}
+            <HStack w='100%' justify='space-evenly' h={{sm: 'calc(100% - 250px)', md: 'calc(100% - 220px)'}}
             >
               <VStack w={{md: '160px', lg: '280px'}} h='100%'>
                 <HStack w='100%' justify='space-between' align='baseline'>
@@ -407,7 +394,6 @@ export default function Staking() {
                     <Button 
                       h='30px'
                       variant={'outline'}
-                      
                       boxShadow={'md'}
                       disabled={!connected}
                       
@@ -418,17 +404,15 @@ export default function Staking() {
                     <Button 
                       h='30px'
                       variant={'outline'}
-                      
                       boxShadow={'md'}
                       disabled={!connected}
-                      
                       // onClick={() => changePoolSelected(0, 2)}
                     >
                       Frenzy
                     </Button>
                   </Stack>
                 </HStack>
-                <Grid justifyItems='center' templateColumns={{ lg: '1fr 1fr'}} p='1rem 0 0.5rem 0.5rem' bg={useColorModeValue('white', 'gray.800')}  style={{ borderRadius: '7px'}} boxShadow='md' w='100%' h='400px' overflowY='auto'>
+                <Grid justifyItems='center' templateColumns={{ lg: '1fr 1fr'}} p='1rem 0 0.5rem 0.5rem' bg={'default'}  style={{ borderRadius: '7px'}} boxShadow='md' w='100%' h='400px' overflowY='auto'>
                   {peacefulBool.map((bool:boolean, index:number) => 
                     <Stack key={index + 15000} 
                     // onClick={() => clickNftPeaceful(index)} 
@@ -478,7 +462,7 @@ export default function Staking() {
                     </Button>
                   </Stack>
                 </HStack>
-                <Grid justifyItems='center' templateColumns={{lg: '1fr 1fr'}} p='1rem 0 0.5rem 0.5rem' bg={useColorModeValue('white', 'gray.800')}  style={{ borderRadius: '7px'}} boxShadow='md' w='100%' h='400px' overflowY='auto'>
+                <Grid justifyItems='center' templateColumns={{lg: '1fr 1fr'}} p='1rem 0 0.5rem 0.5rem' bg={'default'}  style={{ borderRadius: '7px'}} boxShadow='md' w='100%' h='400px' overflowY='auto'>
                   {hungryBool.map((bool:boolean, index:number) => 
                     <Stack key={index + 30000}
                       // onClick={() => clickNftHungry(index)}
@@ -528,7 +512,7 @@ export default function Staking() {
                     </Button>
                   </Stack>
                 </HStack>
-                <Grid justifyItems='center' templateColumns={{ lg: '1fr 1fr'}}  p='1rem 0 0.5rem 0.5rem' bg={useColorModeValue('white', 'gray.800')}  style={{ borderRadius: '7px'}} boxShadow='md' w='100%'  h='400px' overflowY='auto'>
+                <Grid justifyItems='center' templateColumns={{ lg: '1fr 1fr'}}  p='1rem 0 0.5rem 0.5rem' bg={'default'}  style={{ borderRadius: '7px'}} boxShadow='md' w='100%'  h='400px' overflowY='auto'>
                   {frenzyBool.map((bool:boolean, index:number) => 
                     <Stack key={index + 45000}
                     //  onClick={() => clickNftFrenzy(index)}
@@ -603,7 +587,7 @@ export default function Staking() {
                 </Stack>
               </Flex>
             </Flex>
-            <HStack p={2} spacing='10px' bg={useColorModeValue('white', 'gray.800')}  style={{ borderRadius: '7px'}} boxShadow='md' w='100%' minH='140px' overflowX='auto' overflowY='hidden'>
+            <HStack p={2} spacing='10px' bg={'default'}  style={{ borderRadius: '7px'}} boxShadow='md' w='100%' minH='140px' overflowX='auto' overflowY='hidden'>
               {peacefulBool.map((bool:boolean, index:number) => 
                 <Stack key={index + 15000} 
                 // onClick={() => clickNftPeaceful(index)}
@@ -628,10 +612,8 @@ export default function Staking() {
                   <Button 
                     h='30px'
                     variant={'outline'}
-                    
                     boxShadow={'md'}
                     disabled={!connected}
-                    
                     // onClick={() => changePoolSelected(1, 0)}
                     >
                     Peaceful
@@ -639,24 +621,22 @@ export default function Staking() {
                   <Button 
                     h='30px'
                     variant={'outline'}
-                    
                     boxShadow={'md'}
                     disabled={!connected}
-                    
                     // onClick={() => changePoolSelected(1, 2)}
-                    >
+                  >
                     Frenzy
                   </Button>
                 </Stack>
               </Flex>
             </Flex>
-            <HStack p={2} spacing='10px' bg={useColorModeValue('white', 'gray.800')}  style={{ borderRadius: '7px'}} boxShadow='md' w='100%' minH='140px' overflowX='auto' overflowY='hidden'>
+            <HStack p={2} spacing='10px' bg={'default'}  style={{ borderRadius: '7px'}} boxShadow='md' w='100%' minH='140px' overflowX='auto' overflowY='hidden'>
               {hungryBool.map((bool:boolean, index:number) => 
                 <Stack key={index + 30000} 
-                // onClick={() => clickNftHungry(index)}
-                 cursor='pointer' w='100px' minW='100px' border='solid 1px rgb(240,240,240)' 
-                        // bg={bool ? backgroundSelected : 'none' }
-                         h='115px' p='5px 10px' style={{ borderRadius: '7px'}} justify='start' align='left' spacing='5px'>
+                    // onClick={() => clickNftHungry(index)}
+                    cursor='pointer' w='100px' minW='100px' border='solid 1px rgb(240,240,240)' 
+                    // bg={bool ? backgroundSelected : 'none' }
+                    h='115px' p='5px 10px' style={{ borderRadius: '7px'}} justify='start' align='left' spacing='5px'>
                   <Image style={{ borderRadius: '7px'}} width={80} src={`https://joepegs.mypinata.cloud/ipfs/${process.env.NEXT_PUBLIC_NFT_URI}/${hungry[index]}.png`} alt='id-pic' loading='lazy' />
                   <Text fontWeight={'bold'} >#{hungry[index]}</Text>
                 </Stack>
@@ -665,7 +645,7 @@ export default function Staking() {
             <Flex w='100%' align='center' justify='space-between'>
               <Heading as='h2'>Frenzy</Heading>
               <Checkbox 
-              // onChange={(e) => selectAllFrenzy(e.target.checked)}
+                 // onChange={(e) => selectAllFrenzy(e.target.checked)}
                         iconColor='white' colorScheme={'blue'} iconSize='2rem'>
                 All
               </Checkbox>
@@ -695,7 +675,7 @@ export default function Staking() {
                 </Stack>
               </Flex>
             </Flex>
-            <HStack p={2} spacing='10px' bg={useColorModeValue('white', 'gray.800')}  style={{ borderRadius: '7px'}} boxShadow='md' w='100%' minH='140px' overflowX='auto' overflowY='hidden'>
+            <HStack p={2} spacing='10px' bg={'default'}  style={{ borderRadius: '7px'}} boxShadow='md' w='100%' minH='140px' overflowX='auto' overflowY='hidden'>
               {frenzyBool.map((bool:boolean, index:number) => 
                 <Stack key={index + 45000}
                 //  onClick={() => clickNftFrenzy(index)} 
@@ -730,6 +710,6 @@ export default function Staking() {
           </Show>
         </VStack> 
       </Box>     
-    </Stack>
+    </MaxWidthSection>
   )
 }

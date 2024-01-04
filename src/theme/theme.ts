@@ -25,6 +25,10 @@ const theme = extendTheme({
         default: '#E84142',
         _dark: 'white',
       },
+      default: {
+        default: 'white',
+        _dark: 'gray.800'
+      }
     }
   }
 })

@@ -104,37 +104,39 @@ export default function Navbar() {
             <Image width={80} src={logo} alt='logo' />
             {!isMobile ?
               <>
-                <Button variant="ghost">
-                  <Link
-                    href='/'
+                <Link href='/'
+                >
+                  <Button
                     style={path === '/' ? { fontWeight: 'bold' } : {}}
+                    variant="ghost"
                   >
                     Home
-                  </Link>
-                </Button>
-                <Button variant="ghost">
-                  <Link
-                    style={path === '/staking' ? { fontWeight: 'bold' } : {}}
-                    href='/staking'
+                  </Button>
+                </Link>
+                <Link
+                  href='/staking'
+                >
+                  <Button variant="ghost" style={path === '/staking' ? { fontWeight: 'bold' } : {}}>
+                      Staking
+                  </Button>
+                </Link>
+                <Link
+                  href='/mint'
                   >
-                    Staking
-                  </Link>
-                </Button>
-                <Button variant="ghost">
-                  <Link
+                  <Button
                     style={path === '/mint' ? { fontWeight: 'bold' } : {}} 
-                    href='/mint'
+                    variant="ghost"
                   >
                     Mint
-                  </Link>
-                </Button>
-                <Button variant="ghost">
-                  <Link
-                    href='https://lazybearriver.gitbook.io/docs/'
-                    >
+                  </Button>
+                </Link>
+                <Link
+                  href='https://lazybearriver.gitbook.io/docs/'
+                >
+                  <Button variant="ghost">
                     Docs
-                  </Link>
-                </Button>
+                  </Button>
+                </Link>
               </> 
             : null}
           </Flex>
